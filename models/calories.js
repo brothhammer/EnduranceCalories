@@ -1,5 +1,5 @@
 module.exports = function(sequelize,DataTypes) {
-	var Calories = sequelize.define("Calories", {
+	var Calorie = sequelize.define("Calorie", {
 		activity: DataTypes.STRING
 	},
 	{
@@ -15,5 +15,15 @@ module.exports = function(sequelize,DataTypes) {
 	interval: DataTypes.DECIMAL
 	});
 
-	return Calories;
+	Calorie.associate = function(models) {
+    // We're saying that a Post should belong to an Author
+    // A Post can't be created without an Author due to the foreign key constraint
+    Calorie.belongsTo(models.User, {
+      foreignKey: {
+        allowNull: false
+      }
+    });
+  };
+
+	return Calorie;
 };
