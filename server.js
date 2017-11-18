@@ -33,7 +33,10 @@ app.get("/", function(req, res) {
    
       res.render("user");
     });
-  
+
+app.get("/newActivity", function(req, res){
+	res.render("addActivity")
+})
 
 
 // Syncing our sequelize models and then starting our Express app
