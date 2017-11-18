@@ -1,19 +1,33 @@
 module.exports = function(sequelize,DataTypes) {
-	var Calorie = sequelize.define("Calorie", {
-		activity: DataTypes.STRING
-	},
+	var Calorie = sequelize.define("Calorie",
 	{
-	speed: DataTypes.DECIMAL
-	},
-	{
-	units: DataTypes.STRING
-	},
-	{
-	caloriesat100: DataTypes.DECIMAL
-	},
-	{
-	interval: DataTypes.DECIMAL
-	});
+		activity: {
+			type: DataTypes.STRING,
+			allowNull: false,
+			isIn: [['swimming', 'running', 'cycling', 'aerobic', 'lifting']]
+		},
+			speed: {
+				type: DataTypes.DECIMAL,
+				allowNull: false,
+				isIn: [[5, 7, 9]]
+			},
+
+			units: {
+				type: DataTypes.STRING,
+				allowNull: false,
+			},
+			caloriesat100: {
+				type: DataTypes.DECIMAL,
+				allowNull: false
+			},
+			interval: {
+				type: DataTypes.DECIMAL,
+				allowNull: false
+			}
+
+		});
+	
+
 
 	Calorie.associate = function(models) {
     // We're saying that a Post should belong to an Author
