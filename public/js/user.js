@@ -21,14 +21,13 @@ $(document).ready(function() {
     // Calling the upsertAuthor function and passing in the value of the name input
     upsertAuthor({
       name: nameInput.val().trim()
-    },
-    {
+    ,
       age: ageInput.val().trim()
-    }, {
+    , 
       height: heightInput.val().trim()
-    }, {
+    , 
       weight: weightInput.val().trim()
-    }, {
+    , 
       gender: genderInput.val().trim()
     });
   };
