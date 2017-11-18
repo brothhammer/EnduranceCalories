@@ -22,7 +22,6 @@ $(document).ready(function() {
     upsertAuthor({
       name: nameInput.val().trim()
     ,
-    
       age: ageInput.val().trim()
     , 
       height: heightInput.val().trim()
