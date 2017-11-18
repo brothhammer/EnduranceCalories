@@ -29,7 +29,7 @@ module.exports = function(sequelize,DataTypes) {
 			min: 99.9
 		},
 
-		sex: {
+		gender: {
 			type: DataTypes.STRING,
 			allowNull: false,
 			isIn: [['male, female']]
