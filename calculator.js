@@ -1,17 +1,22 @@
 // Takes in all of the command line arguments
 var inputString = process.argv;
 
-// Parses the command line argument to capture the "operand" (add, subtract, multiply, etc) and the numbers
+// User creation inputs
 var sex = inputString[2];
 var height = inputString[3];
 var age = inputString[4];
-var activity = inputString[5];
-var weight = inputString[6];
+var weight = inputString[5];
+
+//activity user inputs
+var activity = inputString[6];
 var speed = inputString[7];
 var duration = inputString[8];
+var intensity = inputString[9];
 
-var lastPound = parseFloat(weight.slice(-1)); //used to
-// console.log(lastPound);
+//used to interpolate between upper and lower linear equations
+var lastPound = parseFloat(weight.slice(-1));
+
+//magic number "coefficient" variables
 var lowerSlope;
 var upperSlope;
 var lowerYIntercept;
@@ -265,8 +270,7 @@ console.log("calories per minute = "+outputCaloriesPerMinute);
 console.log("output calories = "+outputCalories);
 console.log("rmr = "+rmr);
 
-//Daily nutrient requirments for training
-var intensity = inputString[9];
+//Daily nutrient requirments for training variable declaration
 var carbsPerLbUpper;
 var carbsPerLbLower;
 var proteinPerLbUpper;
@@ -280,7 +284,7 @@ var proteinPerDayUpper
 var fatPerDayLower;
 var fatPerDayUpper;
 
-//carbohydrate recomendation based on training intensity
+//nutrient recomendation based on training intensity
 if(intensity === "moderate"){
   carbsPerLbLower = 2.3;
   carbsPerLbUpper = 3.0; 

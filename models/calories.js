@@ -1,11 +1,11 @@
 module.exports = function(sequelize,DataTypes) {
 	var Calorie = sequelize.define("Calorie",
 	{
-		activity: {
-			type: DataTypes.STRING,
-			allowNull: false,
-			isIn: [['swimming', 'running', 'cycling', 'aerobic', 'lifting']]
-		},
+			activity: {
+				type: DataTypes.STRING,
+				allowNull: false,
+				isIn: [['swimming', 'running', 'cycling', 'aerobic', 'lifting']]
+			},
 			speed: {
 				type: DataTypes.DECIMAL,
 				allowNull: false,
@@ -16,6 +16,14 @@ module.exports = function(sequelize,DataTypes) {
 				allowNull: false,
 			},
 
+			duration: {
+				type: DataTypes.STRING,
+				allowNull: false,
+			},
+			intensity: {
+				type: DataTypes.DECIMAL,
+				allowNull: false,
+			},
 			calculatedCalories: {
 				type: DataTypes.INTEGER,
 				allowNull: true
@@ -23,6 +31,7 @@ module.exports = function(sequelize,DataTypes) {
 
 
 		});
+
 	
 
 
