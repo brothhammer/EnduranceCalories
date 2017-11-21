@@ -33,6 +33,11 @@ app.get("/", function(req, res) {
    
       res.render("user");
     });
+
+//added to show addActivity Handlebars
+app.get("/api/calories", function(req, res) {
+  res.render("addActivity");
+});
   
 
 
