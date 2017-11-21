@@ -9,16 +9,15 @@ var activity = inputString[5];
 var weight = inputString[6];
 var speed = inputString[7];
 var duration = inputString[8];
-var lastPound = parseFloat(weight.slice(-1));
+
+var lastPound = parseFloat(weight.slice(-1)); //used to
 // console.log(lastPound);
 var lowerSlope;
 var upperSlope;
 var lowerYIntercept;
 var upperYIntercept;
-var liftingCaloriesPerMinute
-var aerobicCaloriesPerMinute
 
-//the variables we will be modifying with the new numbers
+//the variables modified by the user inputs
 var outputCaloriesPerMinute;
 var rmr;
 var outputCalories;
@@ -247,25 +246,80 @@ if (activity === "swimming" && speed > 35) {
   }
 };
 
-if(activity === "lifting"){
-  liftingCaloriesPerMinute = 0.0528*weight + (-0.105);
-};
-
-if(activity === "aerobic"){
-  aerobicCaloriesPerMinute = 0.0461*weight + (0.105);
-};
 
 //calulate output calories per minute of avtivity 
-outputCaloriesPerMinute = (lastPound*((upperSlope*speed+upperYIntercept)-(lowerSlope*speed+lowerYIntercept))/10)+(lowerSlope*speed+lowerYIntercept);
+if(activity === "running" || activity === "cycling" || activity === "swimming"){
+  //this equation breaks down to:  outputCaloriesPerMinute = (value to nearest 10lbs above weight)-(value to nearest 10lbs below weight)*(x/10)+(value to nearest 10lbs below weight)
+  //or the per pound difference between the upper linear equation and the lower added to the value of the lower linear equation
+  outputCaloriesPerMinute = (lastPound*((upperSlope*speed+upperYIntercept)-(lowerSlope*speed+lowerYIntercept))/10)+(lowerSlope*speed+lowerYIntercept);
+}else if(activity === "lifting"){
+  outputCaloriesPerMinute = 0.0528*weight + (-0.105);
+}else if(activity === "aerobic"){
+  outputCaloriesPerMinute = 0.0461*weight + (0.105);
+}
 //calories per minute multiplied by time length of activity 
 outputCalories = outputCaloriesPerMinute*duration;
 
 // Prints the outputNumber
-console.log(outputCaloriesPerMinute);
-console.log(outputCalories);
-console.log(rmr);
-console.log(liftingCaloriesPerMinute);
-console.log(aerobicCaloriesPerMinute);
+console.log("calories per minute = "+outputCaloriesPerMinute);
+console.log("output calories = "+outputCalories);
+console.log("rmr = "+rmr);
+
+//Daily nutrient requirments for training
+var intensity = inputString[9];
+var carbsPerLbUpper;
+var carbsPerLbLower;
+var proteinPerLbUpper;
+var proteinPerLbLower;
+var fatPerLbUpper;
+var fatPerLbLower;
+var carbsPerDayLower;
+var carbsPerDayUpper
+var proteinPerDayLower;
+var proteinPerDayUpper
+var fatPerDayLower;
+var fatPerDayUpper;
+
+//carbohydrate recomendation based on training intensity
+if(intensity === "moderate"){
+  carbsPerLbLower = 2.3;
+  carbsPerLbUpper = 3.0; 
+  proteinPerLbLower = 0.5;
+  proteinPerLbUpper = 0.5;
+  fatPerLbLower = 0.5;
+  fatPerLbUpper = 0.5;
+}else if(intensity === "heavy"){
+  carbsPerLbLower = 2.7;
+  carbsPerLbUpper = 4.5;
+  proteinPerLbLower = 0.5;
+  proteinPerLbUpper = 0.8;
+  fatPerLbLower = 0.5;
+  fatPerLbUpper = 0.6; 
+}else if(intensity === "very heavy"){
+  carbsPerLbLower = 3.6;
+  carbsPerLbUpper = 5.5;
+  proteinPerLbLower = 0.8;
+  proteinPerLbUpper = 0.9;
+  fatPerLbLower = 0.5;
+  fatPerLbUpper = 0.8;
+};
+
+//calulate daily macro nutrient requirements
+carbsPerDayLower = weight*carbsPerLbLower;
+carbsPerDayUpper = weight*carbsPerLbUpper;
+proteinPerDayLower = weight*proteinPerLbLower;
+proteinPerDayUpper = weight*proteinPerLbUpper;
+fatPerDayLower = weight*fatPerLbLower;
+fatPerDayUpper = weight*fatPerLbUpper;
+
+console.log("carbs L = "+carbsPerDayLower);
+console.log("carbs U = "+carbsPerDayUpper);
+console.log("protein L = "+proteinPerDayLower);
+console.log("protein U = "+proteinPerDayUpper);
+console.log("fat L = "+fatPerDayLower);
+console.log("fat U = "+fatPerDayUpper);
+
+
 
 
 
