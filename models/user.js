@@ -1,7 +1,5 @@
 module.exports = function(sequelize,DataTypes) {
 
-  type: DataTypes.STRING
-
 	var User = sequelize.define("User",
 	{
 		name: {
@@ -34,16 +32,17 @@ module.exports = function(sequelize,DataTypes) {
 			allowNull: false,
 			isIn: [['male, female']]
 		}
+	},
+	{
+		classMethods: {
+			associate: function(models) {
+				User.hasMany(models.Calorie,
+				{
+					onDelete: "cascade"
+				});
+			}
+		}
 	});
-
-
-	User.associate = function(models) {
-    // Associating Author with Posts
-    // When an Author is deleted, also delete any associated Posts
-    User.hasMany(models.Calorie, {
-      onDelete: "cascade"
-    });
-  };
 
 	return User;
 };
