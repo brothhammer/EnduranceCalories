@@ -2,17 +2,25 @@ var db = require("../models");
 
 module.exports = function(app) {
 
-  //get one user
-  app.get("/api/users/:id", function(req, res) {
+	//get all users, this will be used to populate the user options before entering activity
+	app.get("/api/users", function(req, res){
+		db.User.findAll({
+			include: [db.Calorie]
+		}).then(function(dbUser){
+			res.json(dbUser);
+		});
+	});
+	//get one user
+	app.get("/api/users/:id", function(req, res) {
 
-	db.User.findOne({
-	      where: {
-	        id: req.params.id
-	      },
+		db.User.findOne({
+	    	where: {
+	        	id: req.params.id
+	      	},
 	    }).then(function(dbUser) {
-	      res.json(dbUser);
+	    	res.json(dbUser);
 	    });
-	  });
+	});
 
   //save user info
   app.post("/api/users", function(req, res) {
@@ -39,4 +47,19 @@ module.exports = function(app) {
       res.json(dbCalorie);
     });
   });
+
+
+	//added to show addActivity Handlebars
+	app.get("/api/calories", function(req, res) {
+	  res.render("addActivity");
+	});
+	  
+
+	app.get("/newActivity", function(req, res){
+		res.render("addActivity")
+	});
+
+
 }
+
+

@@ -4,7 +4,7 @@ module.exports = function(sequelize,DataTypes) {
 		activity: {	
 			type: DataTypes.STRING,
 			allowNull: false,
-			isIn: [['swimming', 'running', 'cycling', 'aerobic', 'lifting']]
+			isIn: [['swimming', 'running', 'cycling', 'aerobic', 'lifting']],
 		},			
 		speed: {
 			type: DataTypes.DECIMAL,
@@ -24,7 +24,7 @@ module.exports = function(sequelize,DataTypes) {
 		},			
 		calculatedCalories: {
 			type: DataTypes.INTEGER,
-			allowNull: true
+			allowNull: true,
 		}
 	},
 	{

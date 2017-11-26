@@ -35,18 +35,6 @@ app.get("/", function(req, res) {
     });
 
 
-//added to show addActivity Handlebars
-app.get("/api/calories", function(req, res) {
-  res.render("addActivity");
-});
-  
-
-app.get("/newActivity", function(req, res){
-	res.render("addActivity")
-})
-
-
-
 // Syncing our sequelize models and then starting our Express app
 // =============================================================
 db.sequelize.sync({ force: true }).then(function() {

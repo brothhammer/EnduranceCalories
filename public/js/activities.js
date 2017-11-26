@@ -37,8 +37,8 @@ $(document).ready(function() {
   };
 
   function upsertActivity(activityData) {
-    $.post("/api/users", activtyData)
-      .then(console.log('user added'));
+    $.post("/api/calories", activtyData)
+      .then(console.log('activity added'));
   }
 
 });
