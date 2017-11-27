@@ -1,7 +1,7 @@
 $(document).ready(function() {
 
   // Getting references to the user inputs
-  var nameInput = $("#name");
+  var nameInput = $("#user");
   var activityInput = $("#activity");
   var speedInput = $("#speed");
   var unitsInput = $("#units");
@@ -16,12 +16,8 @@ $(document).ready(function() {
 
   function handleActivityFormSubmit(event) {
     event.preventDefault();
-    // Don't do anything if the name fields hasn't been filled out
-    // if (!nameInput.val().trim().trim() && !ageInput.val().trim().trim()&& !heightInput.val().trim().trim() && !weightInput.val().trim().trim() && !genderInput.val().trim().trim()) {
-    //   return;
-    // }
-    // Calling the upsertAuthor function and passing in the value of the name input
-    upsertActivity({
+
+    var newActivity = {
       name: nameInput.val().trim()
     ,
       activity: activityInput.val().trim()
@@ -33,12 +29,50 @@ $(document).ready(function() {
       duration: durationInput.val().trim()
     , 
       intensity: intensityInput.val().trim()
-    });
+    };
+
+    submitActivity(newActivity);
   };
 
-  function upsertActivity(activityData) {
-    $.post("/api/calories", activtyData)
+  function submitActivity(activityData) {
+    $.post("/api/calories", activityData)
       .then(console.log('activity added'));
+  }
+
+
+  var userSelect = $("#user");
+  var userID;
+
+  getUsers();
+
+  // A function to get Authors and then render our list of Authors
+  function getUsers() {
+    $.get("/api/users", renderUserList);
+  }
+  // Function to either render a list of authors, or if there are none, direct the user to the page
+  // to create an author first
+  function renderUserList(data) {
+    if (!data.length) {
+      window.location.href = "/users";
+    }
+    // $(".hidden").removeClass("hidden");
+    var rowsToAdd = [];
+    for (var i = 0; i < data.length; i++) {
+      rowsToAdd.push(createUserRow(data[i]));
+    }
+    userSelect.empty();
+    console.log(rowsToAdd);
+    console.log(userSelect);
+    userSelect.append(rowsToAdd);
+    userSelect.val(userId);
+  }
+
+  // Creates the author options in the dropdown
+  function createUserRow(user) {
+    var listOption = $("<option>");
+    listOption.attr("value", user.id);
+    listOption.text(user.name);
+    return listOption;
   }
 
 });
