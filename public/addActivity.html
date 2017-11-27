@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+		<link rel="stylesheet" href="./public/css/style.css" type="text/css"/>
+		<title>Calorie Calcualtor</title>
+		<script src="https://code.jquery.com/jquery.js"></script>
+		<script type="text/javascript" src= "./public/js/activities.js"></script>
+	</head>
+	<body>
+		
+<h1> Enter Activity</h1>
+
+<h2> Add an Activity</h2>
+<form class = "create-form">
+	<div class = "form-group"</div>
+
+		<label for = "name">Name</label>
+		<input type = "text" id = "name" name = "name">
+
+		<label for = "activity">Activity</label>
+		<select id = "activity">
+    		<option value="" disabled selected>Select activity</option>
+    		<option value="running">Run</option>
+    		<option value="cycling">Cycle</option><option value="cycling">Cycle</option>
+    		<option value="swimming">Swim</option>
+    		<option value="lifting">Lift</option>
+    		<option value="aerobic">General Aerobic</option>
+		</select>
+
+		<label for = "speed">Average Speed</label>
+		<input type = "text" id = "speed" name = "speed">
+
+		<label for = "Units">Units</label>
+		<select id = "units">
+    		<option value="" disabled selected>Select units</option>
+    		<option value="miles/hour">Miles/Hour</option>
+    		<option value="kilometers/hour">Kilometers/Hour</option>
+    		<option value = "yards/minute">yards/minute</option>
+    		<option value = "meters/minute">meters/minute</option>
+    		<option value ="na">N/A</option>	
+		</select>
+		
+		<label for = "duration">Duration of activity to the nearest minute</label>
+		<input type = "text" id = "duration" name = "height">
+		
+		<label for = "intensity">Intensity</label>
+		<select id = "intensity">
+    		<option value="" disabled selected>Select intensity</option>
+    		<option value="moderate">Moderate</option>
+    		<option value="heavy">Heavy
+    		<option value="very heavy">Very Heavy</option>
+		</select>
+	
+	</div>
+	<button type = "submit">submit</button>
+<form>
+	</body>
+</html>

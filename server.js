@@ -20,19 +20,21 @@ app.use(bodyParser.json({ type: "application/vnd.api+json" }));
 app.use('/public', express.static(path.join(__dirname, 'public')))
 
 // Set Handlebars.
-var exphbs = require("express-handlebars");
+// var exphbs = require("express-handlebars");
 
-app.engine("handlebars", exphbs({ defaultLayout: "main" }));
-app.set("view engine", "handlebars");
+// app.engine("handlebars", exphbs({ defaultLayout: "main" }));
+// app.set("view engine", "handlebars");
 
 // Routes
 // =============================================================
-// require("./routes/html-routes.js")(app);
+require("./routes/html-routes.js")(app);
 require("./routes/api.js")(app);
-app.get("/", function(req, res) {
+
+//stuff for handlebars
+// app.get("/", function(req, res) {
    
-      res.render("user");
-    });
+//       res.render("user");
+//     });
 
 
 // Syncing our sequelize models and then starting our Express app
