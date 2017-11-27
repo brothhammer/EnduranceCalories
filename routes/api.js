@@ -51,7 +51,7 @@ module.exports = function(app) {
 
 	//added to show addActivity Handlebars
 	app.get("/api/calories", function(req, res) {
-	  res.render("addActivity");
+	  res.render("addActivity", {layout: "activityMain"});
 	});
 	  
 
