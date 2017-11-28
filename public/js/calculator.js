@@ -377,6 +377,34 @@ console.log("protein U = "+proteinPerDayUpper);
 console.log("fat L = "+fatPerDayLower);
 console.log("fat U = "+fatPerDayUpper);
 
+//array to store results before calling displayResults funtion to place on page
+var resultList = [
+  "calories per minute = "+outputCaloriesPerMinute,
+  "output calories = "+outputCalories,
+  "rmr = "+rmr,
+  "carbs L = "+carbsPerDayLower,
+  "carbs U = "+carbsPerDayUpper,
+  "protein L = "+proteinPerDayLower,
+  "protein U = "+proteinPerDayUpper,
+  "fat L = "+fatPerDayLower,
+  "fat U = "+fatPerDayUpper
+  ];
+
+  //function to loop over resultList to display results
+  displayResults();
+
+  function displayResults(){
+      var resultsDiv = $("#results");
+
+        for (var i = 0; i < resultList.length; i++) {
+
+          // It then creates a new div for each drink. Note we create divs and add the content in the same line.
+          var newResultDiv = $("<div>" + resultList[i] + "</div>");
+
+          // It then adds this new div to the drinkList div.
+          resultsDiv.append(newResultDiv);
+        }
+      }
 
 }
 });
