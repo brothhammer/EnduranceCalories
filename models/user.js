@@ -32,17 +32,26 @@ module.exports = function(sequelize,DataTypes) {
 			allowNull: false,
 			isIn: [['male, female']]
 		}
-	},
-	{
-		classMethods: {
-			associate: function(models) {
-				User.hasMany(models.Calorie,
-				{
-					onDelete: "cascade"
-				});
-			}
-		}
-	});
+	}
+	// ,
+	// {
+	// 	classMethods: {
+	// 		associate: function(models) {
+	// 			User.hasMany(models.Calorie,
+	// 			{
+	// 				onDelete: "cascade"
+	// 			});
+	// 		}
+	// 	}
+	// }
+
+	);
+
+	User.associate = function(models) {
+		User.hasMany(models.Calorie, {
+			onDelete: "cascade"
+		});
+	};
 
 	return User;
 };

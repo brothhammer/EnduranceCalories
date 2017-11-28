@@ -18,8 +18,6 @@ $(document).ready(function() {
     event.preventDefault();
 
     var newActivity = {
-      name: nameInput.val().trim()
-    ,
       activity: activityInput.val().trim()
     , 
       speed: speedInput.val().trim()
@@ -28,7 +26,8 @@ $(document).ready(function() {
     , 
       duration: durationInput.val().trim()
     , 
-      intensity: intensityInput.val().trim()
+      intensity: intensityInput.val().trim(),
+      UserId: userSelect.val()
     };
 
     submitActivity(newActivity);
@@ -40,7 +39,7 @@ $(document).ready(function() {
   }
 
 
-  var userSelect = $("#user");
+  var userSelect = $("#userList");
   var userID;
 
   getUsers();
@@ -55,16 +54,19 @@ $(document).ready(function() {
     if (!data.length) {
       window.location.href = "/users";
     }
+    console.log("renderUserList");
     // $(".hidden").removeClass("hidden");
     var rowsToAdd = [];
     for (var i = 0; i < data.length; i++) {
       rowsToAdd.push(createUserRow(data[i]));
+      console.log(data[i]);
     }
     userSelect.empty();
     console.log(rowsToAdd);
     console.log(userSelect);
     userSelect.append(rowsToAdd);
-    userSelect.val(userId);
+    userSelect.val(data.userId);
+    console.log(userID);
   }
 
   // Creates the author options in the dropdown
