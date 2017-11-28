@@ -1,4 +1,5 @@
 var db = require("../models");
+var calculator = require('./calculator.js');
 
 module.exports = function(app) {
 
@@ -37,7 +38,7 @@ module.exports = function(app) {
 	        id: req.params.id
 	      },
 	    }).then(function(dbCalorie) {
-	      res.send(calculator(dbCalorie))
+	      res.json(dbCalorie)
 	    });
 	  });
 
@@ -54,6 +55,10 @@ module.exports = function(app) {
 	//   res.render("addActivity", {layout: "activityMain"});
 	// });
 	  
+app.get('/calculator', function(req, res){
+	
+
+})
 
 
 }

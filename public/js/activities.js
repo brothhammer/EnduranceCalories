@@ -7,6 +7,7 @@ $(document).ready(function() {
   var unitsInput = $("#units");
   var durationInput = $("#duration");
   var intensityInput = $("#intensity");
+
   
   // Adding event listeners to the form to create a new object, and the button to delete
   // an Author
@@ -31,11 +32,13 @@ $(document).ready(function() {
     };
 
     submitActivity(newActivity);
+    calculateCalories(newActivity);
   };
 
   function submitActivity(activityData) {
     $.post("/api/calories", activityData)
-      .then(console.log('activity added'));
+      .then(window.location.href = "/calculator/userId=" + activityData.UserId);
+
   }
 
 
@@ -76,6 +79,22 @@ $(document).ready(function() {
     listOption.text(user.name);
     return listOption;
   }
+
+  function calculateCalories(activityData) {
+    var userURL = 'api/users/' + activityData.UserId;
+    var sex, height, weight, age;
+    $.ajax({
+      method: 'GET',
+      url: userURL
+    }).done(function(data){
+      sex = data.gender;
+      height = data.height;
+      weight = data.weight;
+      age = data.age;
+    });
+
+    calculator(sex, height, weight, age, activityData.activity, activityData.speed, activityData.units, activityData, duration);
+  };
 
 });
 

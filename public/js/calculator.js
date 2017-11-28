@@ -1,17 +1,42 @@
-// Takes in all of the command line arguments
-var inputString = process.argv;
+// // Takes in all of the command line arguments
+// var inputString = process.argv;
 
-// User creation inputs
-var sex = inputString[2];
-var height = inputString[3];
-var age = inputString[4];
-var weight = inputString[5];
+// // User creation inputs
+// var sex = inputString[2];
+// var height = inputString[3];
+// var age = inputString[4];
+// var weight = inputString[5];
 
-//activity user inputs
-var activity = inputString[6];
-var speed = inputString[7];
-var duration = inputString[8];
-var intensity = inputString[9];
+// //activity user inputs
+// var activity = inputString[6];
+// var speed = inputString[7];
+// var duration = inputString[8];
+// var intensity = inputString[9];
+
+$(document).ready(function() {
+
+var url = window.location.search;
+var userId;
+var sex;
+var height;
+var weight;
+var activity;
+var speed;
+var duration;
+var intensity;
+
+if(url.indexOf("userId =")!= -1) {
+  userId = url.split("=")[1];
+  getUserInfo(userId);
+}
+
+var getUserInfo = function(userId) {
+  $.get("api/users/" + userId, function(data) {
+
+  }
+}
+
+var calculateCalories = function(sex, height, age, weight, activity, speed, duration, intensity) {
 
 //used to interpolate between upper and lower linear equations
 var lastPound = parseFloat(weight.slice(-1));
@@ -324,8 +349,8 @@ console.log("fat L = "+fatPerDayLower);
 console.log("fat U = "+fatPerDayUpper);
 
 
-
-
+}
+});
 
 
 
