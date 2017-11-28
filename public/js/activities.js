@@ -37,10 +37,12 @@ $(document).ready(function() {
     submitActivity(newActivity);
   };
 
+  //function to submit activity to the database and re-direct user to results page
   function submitActivity(activityData) {
-    $.post("/api/calories", activityData)
-      .then(window.location.href = "/calculator/?user_id=" + activityData.UserId);
-
+    $.post("/api/calories", activityData, function() {
+      window.location.href = "/calculator/?user_id=" + activityData.UserId;
+    });
+      console.log("activtiy added");
   }
 
 

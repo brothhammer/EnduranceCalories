@@ -19,6 +19,7 @@ var url = window.location.href;
 var userId, activityId;
 var sex;
 var height;
+var age;
 var weight;
 var activity;
 var speed;
@@ -31,14 +32,17 @@ var intensity;
 
 var getUserInfo = function(userId) {
   $.get("/api/users/" + userId, function(data) {
-    getActivityInfo(userId);
+    
     sex = data.gender;
     height = data.height;
     weight = data.weight;
+    age = data.age;
     console.log(sex);
+    console.log("height "+height);
+    console.log("age "+age);
+    console.log("weight "+weight);
+    getActivityInfo(userId);
   });
-
-
 };
 
 if(url.indexOf("user_id")!== -1) {
@@ -47,17 +51,21 @@ if(url.indexOf("user_id")!== -1) {
 
 }
 
-var getActivityInfo = function(userId) {
-$.get("/api/calories/" + userId, function(data){
-  activity = data.activity;
-  speed = data.speed;
-  duration = data.duration;
-  intensity = data.intensity;
-  console.log(activity, speed, duration, intensity);
-});
+function getActivityInfo (userId) {
+  $.get("/api/calories/" + userId, function(data){
+    activity = data.activity;
+    speed = data.speed;
+    duration = data.duration;
+    intensity = data.intensity;
+    console.log(activity, speed, duration, intensity);
+    calculateCalories(sex, height, age, weight, activity, speed, duration, intensity);
+  })
+  // .then(calculateCalories(sex, height, age, weight, activity, speed, duration, intensity));
 }
 
-var calculateCalories = function(sex, height, age, weight, activity, speed, duration, intensity) {
+
+
+function calculateCalories (sex, height, age, weight, activity, speed, duration, intensity) {
 
 //used to interpolate between upper and lower linear equations
 var lastPound = parseFloat(weight.slice(-1));
@@ -82,7 +90,7 @@ if (sex === "female") {
 
 //select slope and y-intercept for lower weight and upper weight based on activity
 if (activity === "running") {
-  if(weight >= "100" && weight <= "110") {
+  if(parseFloat(weight) >= 100 && parseFloat(weight) <= 110) {
     lowerSlope = 1.2;
     upperSlope = 1.33;
     lowerYIntercept = 0.0333;
@@ -302,7 +310,7 @@ if (activity === "swimming" && speed > 35) {
 if(activity === "running" || activity === "cycling" || activity === "swimming"){
   //this equation breaks down to:  outputCaloriesPerMinute = (value to nearest 10lbs above weight)-(value to nearest 10lbs below weight)*(x/10)+(value to nearest 10lbs below weight)
   //or the per pound difference between the upper linear equation and the lower added to the value of the lower linear equation
-  outputCaloriesPerMinute = (lastPound*((upperSlope*speed+upperYIntercept)-(lowerSlope*speed+lowerYIntercept))/10)+(lowerSlope*speed+lowerYIntercept);
+  outputCaloriesPerMinute = (lastPound*((upperSlope*parseFloat(speed)+upperYIntercept)-(lowerSlope*parseFloat(speed)+lowerYIntercept))/10)+(lowerSlope*parseFloat(speed)+lowerYIntercept);
 }else if(activity === "lifting"){
   outputCaloriesPerMinute = 0.0528*weight + (-0.105);
 }else if(activity === "aerobic"){

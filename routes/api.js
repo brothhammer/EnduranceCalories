@@ -42,7 +42,7 @@ module.exports = function(app) {
 	  });
 
   //post one activity
-  app.post("/api/calories/?user_id", function(req, res) {
+  app.post("/api/calories", function(req, res) {
     db.Calorie.create(req.body).then(function(dbCalorie) {
       res.json(dbCalorie);
     });
