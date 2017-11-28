@@ -1,5 +1,4 @@
 var db = require("../models");
-var calculator = require('./calculator.js');
 
 module.exports = function(app) {
 
@@ -35,7 +34,7 @@ module.exports = function(app) {
 
 	db.Calorie.findOne({
 	      where: {
-	        id: req.params.id
+	        UserId: req.params.id
 	      },
 	    }).then(function(dbCalorie) {
 	      res.json(dbCalorie)
@@ -43,7 +42,7 @@ module.exports = function(app) {
 	  });
 
   //post one activity
-  app.post("/api/calories", function(req, res) {
+  app.post("/api/calories/?user_id", function(req, res) {
     db.Calorie.create(req.body).then(function(dbCalorie) {
       res.json(dbCalorie);
     });
@@ -55,10 +54,7 @@ module.exports = function(app) {
 	//   res.render("addActivity", {layout: "activityMain"});
 	// });
 	  
-app.get('/calculator', function(req, res){
-	
 
-})
 
 
 }

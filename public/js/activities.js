@@ -31,13 +31,15 @@ $(document).ready(function() {
       UserId: userSelect.val()
     };
 
+    
+    // calculateCalories(newActivity);
+
     submitActivity(newActivity);
-    calculateCalories(newActivity);
   };
 
   function submitActivity(activityData) {
     $.post("/api/calories", activityData)
-      .then(window.location.href = "/calculator/userId=" + activityData.UserId);
+      .then(window.location.href = "/calculator/?user_id=" + activityData.UserId);
 
   }
 
@@ -80,21 +82,21 @@ $(document).ready(function() {
     return listOption;
   }
 
-  function calculateCalories(activityData) {
-    var userURL = 'api/users/' + activityData.UserId;
-    var sex, height, weight, age;
-    $.ajax({
-      method: 'GET',
-      url: userURL
-    }).done(function(data){
-      sex = data.gender;
-      height = data.height;
-      weight = data.weight;
-      age = data.age;
-    });
+  // function calculateCalories(activityData) {
+  //   var userURL = 'api/users/' + activityData.UserId;
+  //   var sex, height, weight, age;
+  //   $.ajax({
+  //     method: 'GET',
+  //     url: userURL
+  //   }).done(function(data){
+  //     sex = data.gender;
+  //     height = data.height;
+  //     weight = data.weight;
+  //     age = data.age;
+  //   });
 
-    calculator(sex, height, weight, age, activityData.activity, activityData.speed, activityData.units, activityData, duration);
-  };
+  //   calculator(sex, height, weight, age, activityData.activity, activityData.speed, activityData.units, activityData, duration);
+  // };
 
 });
 

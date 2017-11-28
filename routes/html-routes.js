@@ -16,5 +16,10 @@ module.exports = function(app) {
     res.sendFile(path.join(__dirname, "../public/addActivity.html"));
   });
 
+  app.get('/calculator/', function(req, res){
+	res.sendFile(path.join(__dirname, "../public/results.html"));
+	
+})
+
 
 };

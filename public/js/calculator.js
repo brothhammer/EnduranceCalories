@@ -15,8 +15,8 @@
 
 $(document).ready(function() {
 
-var url = window.location.search;
-var userId;
+var url = window.location.href;
+var userId, activityId;
 var sex;
 var height;
 var weight;
@@ -24,16 +24,37 @@ var activity;
 var speed;
 var duration;
 var intensity;
+ console.log(url);
 
-if(url.indexOf("userId =")!= -1) {
-  userId = url.split("=")[1];
-  getUserInfo(userId);
-}
+
+
 
 var getUserInfo = function(userId) {
-  $.get("api/users/" + userId, function(data) {
+  $.get("/api/users/" + userId, function(data) {
+    getActivityInfo(userId);
+    sex = data.gender;
+    height = data.height;
+    weight = data.weight;
+    console.log(sex);
+  });
 
-  }
+
+};
+
+if(url.indexOf("user_id")!== -1) {
+  userId = url.split("=")[1];
+  getUserInfo(userId);
+
+}
+
+var getActivityInfo = function(userId) {
+$.get("/api/calories/" + userId, function(data){
+  activity = data.activity;
+  speed = data.speed;
+  duration = data.duration;
+  intensity = data.intensity;
+  console.log(activity, speed, duration, intensity);
+});
 }
 
 var calculateCalories = function(sex, height, age, weight, activity, speed, duration, intensity) {
