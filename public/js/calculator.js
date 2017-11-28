@@ -405,6 +405,28 @@ var resultList = [
           resultsDiv.append(newResultDiv);
         }
       }
+  
+  // Bar chart
+new Chart(document.getElementById("bar-chart"), {
+    type: 'bar',
+    data: {
+      labels: ["Carbs L", "Carbs U", "Protein L", "Protien U", "Fat L", "Fat U"],
+      datasets: [
+        {
+          label: "Macro Nutrien Ranges",
+          backgroundColor: ["#3e95cd", "#3e95cd", "#8e5ea2", "#8e5ea2","#3cba9f", "#3cba9f"],
+          data: [carbsPerDayLower,carbsPerDayUpper,proteinPerDayLower,proteinPerDayUpper,fatPerDayLower,fatPerDayUpper]
+        }
+      ]
+    },
+    options: {
+      legend: { display: false },
+      title: {
+        display: true,
+        text: 'Range of calculated Macro nutrient intake in'
+      }
+    }
+});
 
 }
 });
