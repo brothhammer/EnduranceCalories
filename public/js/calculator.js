@@ -455,10 +455,10 @@ calculatorRunCounter = calculatorRunCounter + 1;
 new Chart(document.getElementById("line-chart"), {
   type: 'line',
   data: {
-    labels: ["day 1", "day 2", "day 3", "day 4", "day 5", "day 6", "day 7"],
+    labels: ["six activities ago", "five activities ago", "four activities ago", "three activities ago", "two activities ago", "one activity ago", "most recent"],
     datasets: [{ 
-        data: [outputCaloriesDay[0], outputCaloriesDay[1], outputCaloriesDay[2], outputCaloriesDay[3], outputCaloriesDay[4], outputCaloriesDay[5], outputCaloriesDay[6]],
-        label: "Africa",
+        data: [outputCaloriesDay[6], outputCaloriesDay[5], outputCaloriesDay[4], outputCaloriesDay[3], outputCaloriesDay[2], outputCaloriesDay[1], outputCaloriesDay[0]],
+        label: "Calories burned during last seven entered activities",
         borderColor: "#3e95cd",
         fill: false
       }
