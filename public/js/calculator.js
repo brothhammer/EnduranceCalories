@@ -27,6 +27,13 @@ var duration;
 var intensity;
  console.log(url);
 
+//create a counter to make sure the most recent activity is the one displayed on page and in bar graph
+var calculatorRunCounter = 0;
+
+var outputCaloriesDay = [];
+
+var activityData;
+
 
 
 
@@ -53,19 +60,26 @@ if(url.indexOf("user_id")!== -1) {
 
 function getActivityInfo (userId) {
   $.get("/api/calories/" + userId, function(data){
-    activity = data.activity;
-    speed = data.speed;
-    duration = data.duration;
-    intensity = data.intensity;
+
+    for(i=1;i<=data.length;i++){
+    activity = data[data.length-i].activity;
+    speed = data[data.length-i].speed;
+    duration = data[data.length-i].duration;
+    intensity = data[data.length-i].intensity;
+    activityData = data;
+    console.log(data);
+    console.log(data[0].intensity);
+    console.log(data.length);
     console.log(activity, speed, duration, intensity);
-    calculateCalories(sex, height, age, weight, activity, speed, duration, intensity);
+    calculateCalories(sex, height, age, weight, activity, speed, duration, intensity, activityData);
+    }
   })
   // .then(calculateCalories(sex, height, age, weight, activity, speed, duration, intensity));
 }
 
 
 
-function calculateCalories (sex, height, age, weight, activity, speed, duration, intensity) {
+function calculateCalories (sex, height, age, weight, activity, speed, duration, intensity, activityData) {
 
 //used to interpolate between upper and lower linear equations
 var lastPound = parseFloat(weight.slice(-1));
@@ -391,6 +405,7 @@ var resultList = [
   ];
 
   //function to loop over resultList to display results
+if(calculatorRunCounter === 0) {
   displayResults();
 
   function displayResults(){
@@ -423,10 +438,41 @@ new Chart(document.getElementById("bar-chart"), {
       legend: { display: false },
       title: {
         display: true,
-        text: 'Range of calculated Macro nutrient intake in'
+        text: 'Range of calculated Macro nutrient intake in grams'
       }
     }
 });
+
+}
+
+//increment the calculator counter to graph the last 7 days
+calculatorRunCounter = calculatorRunCounter + 1;
+
+  outputCaloriesDay.push(outputCalories);
+  console.log(outputCaloriesDay);
+
+
+new Chart(document.getElementById("line-chart"), {
+  type: 'line',
+  data: {
+    labels: ["day 1", "day 2", "day 3", "day 4", "day 5", "day 6", "day 7"],
+    datasets: [{ 
+        data: [outputCaloriesDay[0], outputCaloriesDay[1], outputCaloriesDay[2], outputCaloriesDay[3], outputCaloriesDay[4], outputCaloriesDay[5], outputCaloriesDay[6]],
+        label: "Africa",
+        borderColor: "#3e95cd",
+        fill: false
+      }
+    ]
+  },
+  options: {
+    title: {
+      display: true,
+      text: 'Calories burned during exercise for last 7 entries'
+    }
+  }
+});
+
+
 
 }
 });

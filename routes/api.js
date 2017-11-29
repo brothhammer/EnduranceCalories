@@ -30,9 +30,22 @@ module.exports = function(app) {
   });
 
   //get one activity
-  app.get("/api/calories/:id", function(req, res) {
+ //  app.get("/api/calories/:id", function(req, res) {
 
-	db.Calorie.findOne({
+	// db.Calorie.findOne({
+	//       where: {
+	//         UserId: req.params.id
+	//       },
+	//     }).then(function(dbCalorie) {
+	//       res.json(dbCalorie)
+	//     });
+	//   });
+
+//get the most recent 7 entries into calories table
+   app.get("/api/calories/:id", function(req, res) {
+
+	db.Calorie.findAll({
+		  limit: 7,
 	      where: {
 	        UserId: req.params.id
 	      },
