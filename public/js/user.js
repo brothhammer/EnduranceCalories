@@ -3,6 +3,7 @@ $(document).ready(function() {
   var nameInput = $("#name");
   var ageInput = $("#age");
   var heightInput = $("#height");
+  var heightUnitInput = $("#heightUnit");
   var weightInput = $("#weight");
   var genderInput = $("#gender");
   
