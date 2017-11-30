@@ -4,37 +4,121 @@
 	<meta charset="UTF-8">
 		<link rel="stylesheet" href="./public/css/style.css" type="text/css"/>
 		<title>Calorie Calcualtor</title>
+		
+		<link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/pure-min.css" integrity="sha384-nn4HPE8lTHyVtfCBi5yW9d20FjT8BJwUXyWZT9InLYax14RDjBj46LmSztkmNP9w" crossorigin="anonymous">
+  		<link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/grids-responsive-min.css">
+  		<link href="https://fonts.googleapis.com/css?family=Lato:400,700" rel="stylesheet">
+  		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+ 		 <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+
+
+  
+
+  		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+  		<link rel="stylesheet" type="text/css" href="public/css/style.css">
+
+
+
+
 		<script src="https://code.jquery.com/jquery.js"></script>
 		<script src="./public/js/user.js"></script>
 	</head>
 	<body>
-		
-		<h1> User Information</h1>
 
-<h2> Add a User</h2>
+	<!--=====================   NAVBAR  =====================-->
+
+	<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid home-menu">
+      <div class="navbar-header">
+
+      	<a class="navbar-brand pure-menu-heading" href="index.html">Create New User</a>
+        </div>
+
+    </div>
+</nav>
+
+<br>
+<br>
+<br>
+<br>
+		
+
+      	
+
+
 <form class = "create-form">
 	<div class = "form-group">
-		<label for = "name">Name</label>
-		<input type = "text" id = "name" name = "name">
+		<div class="pure-g">
+        	<div class="l-box pure-u-1 pure-u-md-1-2 pure-u-lg-1-6">
+				<label for = "name">Name</label>
+				<input type = "text" id = "name" name = "name">
+			</div>
 
-		<label for = "age">Age</label>
-		<input type = "text" id = "age" name = "age">
-	
-		<label for = "height">Height</label>
-		<input type = "text" id = "height" name = "height">
+			<div class="l-box pure-u-1 pure-u-md-1-2 pure-u-lg-1-6">
+				<label for = "age">Age</label>
+				<input type = "text" id = "age" name = "age">
+			</div>
+
+			<div class="l-box pure-u-1 pure-u-md-1-2 pure-u-lg-1-6">
+				<label for = "height">Height</label>
+				<input type = "text" id = "height" name = "height">
+			</div>
 		
-		<label for = "weight">Weight</label>
-		<input type = "text" id = "weight" name = "weight">
-	
-		<label for = "gender">Gender</label>
-		<select id = "gender">
-    		<option value="" disabled selected>Select your gender</option>
-    		<option value="female">Female</option>
-    		<option value="male">Male</option>
-		</select>
+			<div class="l-box pure-u-1 pure-u-md-1-2 pure-u-lg-1-6">
+				<label for = "weight">Weight</label>
+				<input type = "text" id = "weight" name = "weight">
+			</div>
+
+
+			<div class="l-box pure-u-1 pure-u-md-1-2 pure-u-lg-1-6">
+				<label for = "gender">Gender</label>
+				<select id = "gender">
+    				<option value="" disabled selected>Select your gender</option>
+    				<option value="female">Female</option>
+    				<option value="male">Male</option>
+				</select>
+			</div>
+
+			<div class="l-box pure-u-1 pure-u-md-1-2 pure-u-lg-1-6">
+				<a href = "/activity"><button type = "submit">submit</button></a>
+			</div>
+		</div>
 	</div>
-	<a href = "/activity"><button type = "submit">submit</button></a>
+	
 <form>
+
+	<div class="ribbon l-box-lrg pure-g">
+      <div class="l-box-lrg is-center pure-u-1 pure-u-md-1-2 pure-u-lg-2-5">
+        <img width="300" alt="File Icons" class="pure-img-responsive" src="public/assets/images/food.jpg">
+      </div>
+      <div class="pure-u-1 pure-u-md-1-2 pure-u-lg-3-5">
+
+        <h2 class="content-head content-head-ribbon">Already registered? Find out how many calories and grams of carbohydrates, protein and fat you need.</h2>
+
+
+        <button type="submit" class="button-success pure-button" id="signup" onclick="window.location.href = '/activity'">Add Activity</button>
+
+      </div>
+    </div>
+
+  </div>
+
+  <nav class="navbar navbar-default navbar-fixed-bottom">
+    <div class="container">
+    <div class="col-md-12">
+      <div class="navbar-footer">
+       <footer class="text-center">&copy; 2017 Endurance Athlete Calorie Calculator</footer>             
+           
+          </div>
+
+      </div>
+    </div>
+    </div>
+  </nav>
 
 
 </body>

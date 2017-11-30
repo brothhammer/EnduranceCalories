@@ -1,7 +1,7 @@
 {
   "development": {
     "username": "root",
-    "password": "h78km9341ws?P",
+    "password": "",
     "database": "tracker",
     "host": "127.0.0.1",
     "dialect": "mysql"
