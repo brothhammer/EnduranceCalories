@@ -1,24 +1,25 @@
 {
   "development": {
     "username": "root",
-    "password": "h78km9341ws?P",
+    "password": "",
     "database": "tracker",
     "host": "127.0.0.1",
     "dialect": "mysql"
   },
   "test": {
     "username": "root",
-    "password": "h78km9341ws?P",
+    "password": "",
     "database": "tracker",
     "host": "127.0.0.1",
     "dialect": "mysql"
   },
   "production": {
-    "username": "root",
-    "password": "h78km9341ws?P",
-    "database": "tracker",
-    "host": "127.0.0.1",
-    "dialect": "mysql"
+    "username": "l7x4m6hpa06vnoqu",
+    "password": "ianagjj8vep44cyk",
+    "database": "`muz3qg4cz5iewf1q",
+    "host": "icopoghru9oezxh8.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
+    "dialect": "mysql",
+     "use_env_variable": "mysql://l7x4m6hpa06vnoqu:ianagjj8vep44cyk@icopoghru9oezxh8.cbetxkdyhwsb.us-east-1.rds.amazonaws.com:3306/muz3qg4cz5iewf1q"
   }
 }
 
