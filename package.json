@@ -1,18 +1,27 @@
 {
   "name": "project2",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "This app calculates calories burned based on a specified exercise for endurance atheletes.",
+  "main": "server.js",
   "dependencies": {
+    "body-parser": "^1.18.2",
     "express": "^4.16.2",
-    "express-handlebars": "^3.0.0",
-    "mysql2": "^1.5.0",
-    "sequelize": "^4.22.6"
+    "mysql2": "^1.5.1",
+    "sequelize": "^4.23.2"
   },
   "devDependencies": {},
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
   },
-  "author": "",
-  "license": "ISC"
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kwiseman0804/project2.git"
+  },
+  "author": "Lauren, Bryce, Kate",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kwiseman0804/project2/issues"
+  },
+  "homepage": "https://github.com/kwiseman0804/project2#readme"
 }
