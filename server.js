@@ -46,4 +46,9 @@ require("./routes/api.js")(app);
 //   });
 // });
 
-app.listen(PORT);
+db.sequelize.sync({ force: true });
+
+  app.listen(PORT, function(error) {
+  	if(error) throw error;
+    console.log("App listening on PORT " + PORT);
+  });
