@@ -59,7 +59,7 @@ $(document).ready(function() {
   // to create an author first
   function renderUserList(data) {
     if (!data.length) {
-      window.location.href = "/users";
+      window.location.href = "/adduser";
     }
     console.log("renderUserList");
     // $(".hidden").removeClass("hidden");

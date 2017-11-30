@@ -8,8 +8,13 @@ module.exports = function(app) {
 
   // index route loads view.html
   app.get("/", function(req, res) {
+    res.sendFile(path.join(__dirname, "../public/index.html"));
+  });
+
+    app.get("/adduser", function(req, res) {
     res.sendFile(path.join(__dirname, "../public/user.html"));
   });
+
 
   // cms route loads cms.html
   app.get("/activity", function(req, res) {

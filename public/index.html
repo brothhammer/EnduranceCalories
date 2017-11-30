@@ -22,7 +22,7 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-  <link rel="stylesheet" type="text/css" href="css/style.css">
+  <link rel="stylesheet" type="text/css" href="public/css/style.css">
   
 </head>
 
@@ -93,23 +93,23 @@
   <!-- Wrapper for slides -->
   <div class="carousel-inner" class="pure-g">
     <div class="item active">
-      <img src="assets/images/running.jpg" alt="Running" style="width:50%;">
+      <img src="public/assets/images/running.jpg" alt="Running" style="width:50%;">
     </div>
 
     <div class="item">
-      <img src="assets/images/cycling.jpg" alt="Cycling" style="width:45%;">
+      <img src="public/assets/images/cycling.jpg" alt="Cycling" style="width:45%;">
     </div>
 
     <div class="item">
-      <img src="assets/images/swimming.jpg" alt="Swimming" style="width:55%;">
+      <img src="public/assets/images/swimming.jpg" alt="Swimming" style="width:55%;">
     </div>
 
     <div class="item">
-      <img src="assets/images/aerobic.jpg" alt="Lifting" style="width:50%;">
+      <img src="public/assets/images/aerobic.jpg" alt="Lifting" style="width:50%;">
     </div>
 
     <div class="item">
-      <img src="assets/images/lifting.jpg" alt="Aerobic" style="width:50%;">
+      <img src="public/assets/images/lifting.jpg" alt="Aerobic" style="width:50%;">
     </div>
   </div>
   <!-- Left and right controls -->
@@ -174,16 +174,16 @@
 
     <div class="ribbon l-box-lrg pure-g">
       <div class="l-box-lrg is-center pure-u-1 pure-u-md-1-2 pure-u-lg-2-5">
-        <img width="300" alt="File Icons" class="pure-img-responsive" src="assets/images/energy-drink.jpg">
+        <img width="300" alt="File Icons" class="pure-img-responsive" src="public/assets/images/energy-drink.jpg">
       </div>
       <div class="pure-u-1 pure-u-md-1-2 pure-u-lg-3-5">
 
         <h2 class="content-head content-head-ribbon">Create a user profile or add exercise activity if already registered.</h2>
 
 
-        <button type="submit" class="button-success pure-button" id="signup">Add User</button>
+        <button type="submit" class="button-success pure-button" id="signup" onclick="window.location.href = '/adduser'">Add User</button>
 
-        <button type="submit" class="button-success pure-button" id="signup">Add Activity</button>
+        <button type="submit" class="button-success pure-button" id="signup" onclick="window.location.href = '/activity'">Add Activity</button>
 
       </div>
     </div>

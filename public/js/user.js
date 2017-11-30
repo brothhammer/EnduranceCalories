@@ -33,8 +33,10 @@ $(document).ready(function() {
   };
 
   function upsertAuthor(authorData) {
-    $.post("/api/users", authorData)
-      .then(console.log('user added'));
+    $.post("/api/users", authorData, function(){
+       window.location.href = "/activity";
+    })
+      console.log('user added');
   }
 
 });
