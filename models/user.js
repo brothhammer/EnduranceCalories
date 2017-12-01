@@ -16,9 +16,10 @@ module.exports = function(sequelize,DataTypes) {
 		},
 		height: {
 			type: DataTypes.DECIMAL,
-			allowNull: false,
-			min: 137.16,
-			max: 216.4
+			allowNull: false
+			// ,
+			// min: 137.16,
+			// max: 216.4
 		},
 
 		weight: {

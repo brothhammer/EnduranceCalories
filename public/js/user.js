@@ -19,13 +19,19 @@ $(document).ready(function() {
     // if (!nameInput.val().trim().trim() && !ageInput.val().trim().trim()&& !heightInput.val().trim().trim() && !weightInput.val().trim().trim() && !genderInput.val().trim().trim()) {
     //   return;
     // }
+    // console.log(heightUnitInput.val())
+    if (heightUnitInput.val() === "in") {
+        heightInput = parseInt(heightInput.val()) * 2.54;
+    } else { heightInput = heightInput.val().trim() }
+    
+
     // Calling the upsertAuthor function and passing in the value of the name input
     upsertAuthor({
       name: nameInput.val().trim()
     ,
       age: ageInput.val().trim()
     , 
-      height: heightInput.val().trim()
+      height: heightInput
     , 
       weight: weightInput.val().trim()
     , 
