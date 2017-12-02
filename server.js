@@ -32,7 +32,7 @@ require("./routes/api.js")(app);
 
 //stuff for handlebars
 // app.get("/", function(req, res) {
-   
+
 //       res.render("user");
 //     });
 
@@ -48,7 +48,7 @@ require("./routes/api.js")(app);
 
 db.sequelize.sync({ force: true });
 
-  app.listen(PORT, function(error) {
-  	if(error) throw error;
+app.listen(PORT, function(error) {
+    if (error) throw error;
     console.log("App listening on PORT " + PORT);
-  });
+});

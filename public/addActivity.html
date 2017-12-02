@@ -1,129 +1,108 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-	<meta charset="UTF-8">
-		<link rel="stylesheet" href="./public/css/style.css" type="text/css"/>
-		<title>Add Activity</title>
-		<link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/pure-min.css" integrity="sha384-nn4HPE8lTHyVtfCBi5yW9d20FjT8BJwUXyWZT9InLYax14RDjBj46LmSztkmNP9w" crossorigin="anonymous">
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="./public/css/style.css" type="text/css" />
+    <title>Add Activity</title>
+    <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/pure-min.css" integrity="sha384-nn4HPE8lTHyVtfCBi5yW9d20FjT8BJwUXyWZT9InLYax14RDjBj46LmSztkmNP9w" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/grids-responsive-min.css">
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="public/css/style.css">
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <script type="text/javascript" src="./public/js/activities.js"></script>
+</head>
 
-  		<link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/grids-responsive-min.css">
-
-  		<link href="https://fonts.googleapis.com/css?family=Lato:400,700" rel="stylesheet">
-
-  		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-
- 		<link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
-
-  		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-
-  		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-
-  		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
-  		<link rel="stylesheet" type="text/css" href="public/css/style.css">
-
-		<script src="https://code.jquery.com/jquery.js"></script>
-
-		<script type="text/javascript" src= "./public/js/activities.js"></script>
-	</head>
 <body>
-
-<nav class="navbar navbar-default navbar-fixed-top">
-    <div class="container-fluid home-menu">
-      <div class="navbar-header">
-
-      	<a class="navbar-brand pure-menu-heading" href="index.html">Add Workout</a>
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container-fluid home-menu">
+            <div class="navbar-header">
+                <a class="navbar-brand pure-menu-heading" href="index.html">Add Workout</a>
+            </div>
         </div>
-
+    </nav>
+    <br>
+    <br>
+    <br>
+    <br>
+    <form class="create-form">
+        <div class="form-group" </div>
+            <div class="pure-g">
+                <div class="l-box pure-u-1 pure-u-md-1-2 pure-u-lg-1-6">
+                    <label for="userList">Name</label>
+                    <select class="form-control" id="userList">
+                    </select>
+                </div>
+                <div class="l-box pure-u-1 pure-u-md-1-2 pure-u-lg-1-6">
+                    <label for="activity">Activity</label>
+                    <select id="activity">
+                        <option value="" disabled selected>Select activity</option>
+                        <option value="running">Run</option>
+                        <option value="cycling">Cycle</option>
+                        <option value="cycling">Cycle</option>
+                        <option value="swimming">Swim</option>
+                        <option value="lifting">Lift</option>
+                        <option value="aerobic">General Aerobic</option>
+                    </select>
+                </div>
+                <div class="l-box pure-u-1 pure-u-md-1-2 pure-u-lg-1-6">
+                    <label for="speed">Average Speed</label>
+                    <input type="text" id="speed" name="speed">
+                </div>
+                <div class="l-box pure-u-1 pure-u-md-1-2 pure-u-lg-1-6">
+                    <label for="Units">Units</label>
+                    <select id="units">
+                        <option value="" disabled selected>Select units</option>
+                        <option value="miles/hour">Miles/Hour</option>
+                        <option value="kilometers/hour">Kilometers/Hour</option>
+                        <option value="yards/minute">yards/minute</option>
+                        <option value="meters/minute">meters/minute</option>
+                        <option value="na">N/A</option>
+                    </select>
+                </div>
+                <div class="l-box pure-u-1 pure-u-md-1-2 pure-u-lg-1-6">
+                    <label for="duration">Duration of activity to the nearest minute</label>
+                    <input type="text" id="duration" name="height">
+                </div>
+                <div class="l-box pure-u-1 pure-u-md-1-2 pure-u-lg-1-6">
+                    <label for="intensity">Intensity</label>
+                    <select id="intensity">
+                        <option value="" disabled selected>Select intensity</option>
+                        <option value="moderate">Moderate</option>
+                        <option value="heavy">Heavy</option>
+                        <option value="very heavy">Very Heavy</option>
+                    </select>
+                </div>
+                <div class="l-box pure-u-1 pure-u-md-1-2 pure-u-lg-1-6">
+                    <button type="submit" class="addActivityBtn">submit</button>
+                </div>
+            </div>
+        </div>
+    </form>
+    <div class="ribbon l-box-lrg pure-g">
+        <div class="l-box-lrg is-center pure-u-1 pure-u-md-1-2 pure-u-lg-2-5">
+            <img width="300" alt="File Icons" class="pure-img-responsive" src="public/assets/images/runners.jpg">
+        </div>
+        <div class="pure-u-1 pure-u-md-1-2 pure-u-lg-3-5">
+            <h2 class="content-head content-head-ribbon">Navigate to the home page for more information or create a new user profile.</h2>
+            <button type="submit" class="button-success pure-button" id="signup" onclick="window.location.href = '/adduser'">Add User</button>
+            <button type="submit" class="button-success pure-button" id="signup" onclick="window.location.href = '/'">Home</button>
+        </div>
     </div>
-</nav>
-
-<br>
-<br>
-<br>
-<br>
-
-
-<form class = "create-form">
-	<div class = "form-group"</div>
-	<div class="pure-g">
-		<div class="l-box pure-u-1 pure-u-md-1-2 pure-u-lg-1-6">
-			<label for = "userList">Name</label>
-				<select class="form-control" id= "userList">
-  				</select>
-  		</div>
-		<div class="l-box pure-u-1 pure-u-md-1-2 pure-u-lg-1-6">
-			<label for = "activity">Activity</label>
-			<select id = "activity">
-	    		<option value="" disabled selected>Select activity</option>
-	    		<option value="running">Run</option>
-	    		<option value="cycling">Cycle</option><option value="cycling">Cycle</option>
-	    		<option value="swimming">Swim</option>
-	    		<option value="lifting">Lift</option>
-	    		<option value="aerobic">General Aerobic</option>
-			</select>
-		</div>
-		<div class="l-box pure-u-1 pure-u-md-1-2 pure-u-lg-1-6">
-			<label for = "speed">Average Speed</label>
-			<input type = "text" id = "speed" name = "speed">
-		</div>
-		<div class="l-box pure-u-1 pure-u-md-1-2 pure-u-lg-1-6">
-			<label for = "Units">Units</label>
-			<select id = "units">
-	    		<option value="" disabled selected>Select units</option>
-	    		<option value="miles/hour">Miles/Hour</option>
-	    		<option value="kilometers/hour">Kilometers/Hour</option>
-	    		<option value = "yards/minute">yards/minute</option>
-	    		<option value = "meters/minute">meters/minute</option>
-	    		<option value ="na">N/A</option>	
-			</select>
-		</div>
-		<div class="l-box pure-u-1 pure-u-md-1-2 pure-u-lg-1-6">
-			<label for = "duration">Duration of activity to the nearest minute</label>
-			<input type = "text" id = "duration" name = "height">
-		</div>
-		<div class="l-box pure-u-1 pure-u-md-1-2 pure-u-lg-1-6">
-			<label for = "intensity">Intensity</label>
-			<select id = "intensity">
-	    		<option value="" disabled selected>Select intensity</option>
-	    		<option value="moderate">Moderate</option>
-	    		<option value="heavy">Heavy</option>
-	    		<option value="very heavy">Very Heavy</option>
-			</select>
-		</div>
-		<div class="l-box pure-u-1 pure-u-md-1-2 pure-u-lg-1-6">
-			<button type = "submit" class="addActivityBtn">submit</button>
-		</div>
-	</div>
-	</div>
-</form>
-
-<div class="ribbon l-box-lrg pure-g">
-      <div class="l-box-lrg is-center pure-u-1 pure-u-md-1-2 pure-u-lg-2-5">
-        <img width="300" alt="File Icons" class="pure-img-responsive" src="public/assets/images/runners.jpg">
-      </div>
-      <div class="pure-u-1 pure-u-md-1-2 pure-u-lg-3-5">
-
-        <h2 class="content-head content-head-ribbon">Navigate to the home page for more information or create a new user profile.</h2>
-
-
-        <button type="submit" class="button-success pure-button" id="signup" onclick="window.location.href = '/adduser'">Add User</button>
-
-         <button type="submit" class="button-success pure-button" id="signup" onclick="window.location.href = '/'">Home</button>
-
-      </div>
-    </div>
-
-  <nav class="navbar navbar-default navbar-fixed-bottom">
-    <div class="container">
-    <div class="col-md-12">
-      <div class="navbar-footer">
-       <footer class="text-center">&copy; 2017 Endurance Athlete Calorie Calculator</footer>             
-           
-          </div>
-
-      </div>
-    </div>
-  </nav>
+    <nav class="navbar navbar-default navbar-fixed-bottom">
+        <div class="container">
+            <div class="col-md-12">
+                <div class="navbar-footer">
+                    <footer class="text-center">&copy; 2017 Endurance Athlete Calorie Calculator</footer>
+                </div>
+            </div>
+        </div>
+    </nav>
 </body>
+
 </html>
