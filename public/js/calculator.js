@@ -411,15 +411,23 @@ $(document).ready(function() {
             function displayResults() {
                 var resultsDiv = $("#results");
 
-                for (var i = 0; i < resultList.length; i++) {
+                // for (var i = 0; i < resultList.length; i++) {
 
-                    // It then creates a new div for each drink. Note we create divs and add the content in the same line.
-                    var newResultDiv = $("<div>" + resultList[i] + "</div>");
+                //     // It then creates a new div for each drink. Note we create divs and add the content in the same line.
+                //     var newResultDiv = $("<div>" + resultList[i] + "</div>");
 
-                    // It then adds this new div to the drinkList div.
-                    resultsDiv.append(newResultDiv);
-                }
-            }
+                //     // It then adds this new div to the drinkList div.
+                //     resultsDiv.append(newResultDiv);
+                // }
+                $("#CPM").text(outputCaloriesPerMinute);
+                $("#OC").text(outputCalories);
+                $("#RMR").text(rmr);
+                $("#carbsLower").text(carbsPerDayLower);
+                $("#carbsUpper").text(carbsPerDayUpper);
+                $("#proteinLower").text(proteinPerDayLower);
+                $("#proteinUpper").text(proteinPerDayUpper);
+                $("#fatLower").text(fatPerDayLower);
+                $("#fatUpper").text(fatPerDayUpper);
 
             // Bar chart
             new Chart(document.getElementById("bar-chart"), {
@@ -471,5 +479,6 @@ $(document).ready(function() {
 
 
 
+    }
     }
 });

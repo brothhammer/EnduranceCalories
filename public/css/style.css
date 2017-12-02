@@ -2,6 +2,10 @@ body {
     font-family: 'Barlow Semi Condensed', sans-serif;
 }
 
+#resultsBody {
+    padding-top:100px;
+}
+
 
 /*.social {
     margin-right: 10px;
