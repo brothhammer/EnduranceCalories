@@ -449,6 +449,7 @@ $(document).ready(function() {
                 }
             });
 
+            }
         }
 
         //increment the calculator counter to graph the last 7 days
@@ -478,7 +479,5 @@ $(document).ready(function() {
         });
 
 
-
-    }
     }
 });
