@@ -419,9 +419,9 @@ $(document).ready(function() {
                 //     // It then adds this new div to the drinkList div.
                 //     resultsDiv.append(newResultDiv);
                 // }
-                $("#CPM").text(outputCaloriesPerMinute);
-                $("#OC").text(outputCalories);
-                $("#RMR").text(rmr);
+                $("#CPM").text(Math.round(outputCaloriesPerMinute * 100) / 100);
+                $("#OC").text(Math.round(outputCalories * 10) / 10);
+                $("#RMR").text(Math.round(rmr * 1) / 1);
                 $("#carbsLower").text(carbsPerDayLower);
                 $("#carbsUpper").text(carbsPerDayUpper);
                 $("#proteinLower").text(proteinPerDayLower);
